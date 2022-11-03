@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  dkb_fetcher:
+    container_name: dkb_fetcher
+    restart: always
+    build: ./src
+    ports:
+      - "8000:8000"
+    command: gunicorn -w 1 -b 0.0.0.0:8000 wsgi:app
+  
