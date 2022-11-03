@@ -127,3 +127,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+.github/workflows/docker_build_fetcher.yml
+.github/.DS_Store
+.DS_Store

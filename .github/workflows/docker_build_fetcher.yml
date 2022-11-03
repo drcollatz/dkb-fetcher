@@ -7,9 +7,6 @@ on:
 
 jobs:
   build:
-    strategy:
-      matrix:
-        apps: ["src", "nginx"]
     runs-on: ubuntu-latest
     steps:
       -
@@ -31,8 +28,8 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v3
         with:
-          context: ./${{ matrix.apps }}/
+          context: ./src/
           platforms: linux/arm/v7
-          file: ./${{ matrix.apps }}/Dockerfile
+          file: ./src/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/${{ matrix.apps }}:latest
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/dkb-fetcher:latest
